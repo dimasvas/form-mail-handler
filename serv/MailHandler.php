@@ -7,7 +7,8 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
  */
 
 /**
- * Class MailHandler
+ * Class MailHandler extends PHPMailer Class
+ * https://github.com/PHPMailer/PHPMailer
  */
 class MailHandler extends PHPMailer
 {
