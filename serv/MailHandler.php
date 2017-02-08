@@ -18,6 +18,11 @@ class MailHandler extends PHPMailer
     {
         $this->Subject = $content['subject'];
         $this->Body = $content['body'];
+
+        /**
+         * Uncomment if no config provided in host panel
+         */
+        //$this->setGmailConfig();
     }
 
     /**
