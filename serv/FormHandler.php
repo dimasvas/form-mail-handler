@@ -18,16 +18,14 @@ class FormHandler {
     private $fields = [];
 
     /**
-     * formHandler constructor.
-     * @param $rawPost
-     * @param $files
+     * FormHandler constructor.
      * @param $dataFields
      */
-    public function __construct($rawPost, $files, $dataFields)
+    public function __construct($dataFields)
     {
         $this->fields = $dataFields;
-        $this->data = $this->handleData($rawPost);
-        $this->files = $this->handleFiles();
+        $this->data = $this->handleData($_POST);
+        $this->files = $this->handleFiles($_FILES);
     }
 
     /**
@@ -64,11 +62,27 @@ class FormHandler {
     }
 
     /**
+     * @param $rawFiles
      * @return array
      */
-    protected function handleFiles()
+    protected function handleFiles($rawFiles)
     {
         $result = [];
+
+        if(array_key_exists('userfile', $rawFiles)) {
+            $files = $rawFiles['userfile'];
+
+            foreach ($files['error'] as $key => $error) {
+                if($error === 0) {
+                    $result[] = [
+                        'name' => $files['name'][$key],
+                        'type' => $files['type'][$key],
+                        'tmp_name' => $files['tmp_name'][$key],
+                        'size' => $files['size'][$key],
+                    ];
+                }
+            }
+        }
 
         return $result;
     }

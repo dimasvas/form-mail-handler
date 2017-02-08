@@ -23,7 +23,7 @@ $dataFields = [
     'message' => ['require' => false, 'label' => 'Message'],
 ];
 
-$formHandler = new FormHandler($_POST, $_FILES, $dataFields);
+$formHandler = new FormHandler($dataFields);
 $contentHandler = new MailTemplate($formHandler->getData());
 $requestData = $formHandler->getData();
 $mailer = new MailHandler($requestData, $contentHandler->getContent());
@@ -32,6 +32,7 @@ $mailer = new MailHandler($requestData, $contentHandler->getContent());
  * Set Up Mailer
  */
 $mailer->setContent($contentHandler->getContent());
+$mailer->handleAttachment($formHandler->getFiles());
 $mailer->setFrom($requestData['email']);
 $mailer->AddAddress($recipient);
 $mailer->isHTML(true);

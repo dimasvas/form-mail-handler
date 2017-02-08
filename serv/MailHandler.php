@@ -12,9 +12,22 @@ class MailHandler extends PHPMailer
         $this->Body = $content['body'];
     }
 
+    /**
+     * @return string
+     */
     public function isSend()
     {
         return parent::Send() ? 'success' : 'error';
+    }
+
+    /**
+     * @param $files
+     */
+    public function handleAttachment($files)
+    {
+        foreach ($files as $item) {
+            parent::addAttachment($item['tmp_name'], $item['name'], 'base64', $item['type']);
+        }
     }
 
     /**
