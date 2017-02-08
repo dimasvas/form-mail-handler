@@ -1,0 +1,33 @@
+.form-wrapper {
+    margin-top: 60px;
+}
+.text-wrapper {
+    text-align: justify;
+}
+#file-wrapper {
+    margin-top: 30px;
+}
+.submit-wrapper {
+    margin-top: 30px;
+}
+.select-counter {
+    margin-bottom: 15px;
+}
+.select-counter-label {
+    padding: 0px;
+    position: relative;
+    top: 8px;
+}
+.file-counter {
+    width: 60px;
+}
+
+/**
+* Error customization
+ */
+.error {
+    border: 1px solid #f00;
+}
+.valid {
+    border: 1px solid #0ff;
+}
