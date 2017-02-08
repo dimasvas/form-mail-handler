@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * This file is part of Form Handler package
+ * (c) Dimitry Vasilenko <dmv.developer@gmail.com>
+ */
+
+/**
+ * Class MailTemplate
+ */
 class MailTemplate
 {
     /**

@@ -1,6 +1,14 @@
 <?php
 require_once 'PHPMailer/PHPMailerAutoload.php';
 
+/**
+ * This file is part of Form Handler package
+ * (c) Dimitry Vasilenko <dmv.developer@gmail.com>
+ */
+
+/**
+ * Class MailHandler
+ */
 class MailHandler extends PHPMailer
 {
     /**

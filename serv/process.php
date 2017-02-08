@@ -1,5 +1,8 @@
 <?php
 /**
+ * This file is part of Form Handler package
+ * (c) Dimitry Vasilenko <dmv.developer@gmail.com>
+ *
  * Script to process from data and send via email
  */
 
@@ -27,6 +30,11 @@ $formHandler = new FormHandler($dataFields);
 $contentHandler = new MailTemplate($formHandler->getData());
 $requestData = $formHandler->getData();
 $mailer = new MailHandler($requestData, $contentHandler->getContent());
+
+/**
+ * Set Default English err Message
+ */
+$mailer->setLanguage('en');
 
 /**
  * Set Up Mailer

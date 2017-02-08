@@ -1,3 +1,8 @@
+/**
+ * This file is part of Form Handler package
+ * (c) Dimitry Vasilenko <dmv.developer@gmail.com>
+ */
+
 $(function(){
     $config = {
         'method': 'POST',
