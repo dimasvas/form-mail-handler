@@ -21,6 +21,14 @@ class MailHandler extends PHPMailer
     }
 
     /**
+     * @param $name
+     */
+    public function setFromName($name)
+    {
+        $this->FromName = $name;
+    }
+
+    /**
      * @return string
      */
     public function isSend()
@@ -45,9 +53,9 @@ class MailHandler extends PHPMailer
     private function setGmailConfig()
     {
         $this->IsSMTP();
-        $this->SMTPDebug = 1;
+        $this->SMTPDebug = 0;
         $this->SMTPAuth = true;
-        $this->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+        $this->SMTPSecure = 'ssl';
         $this->Host = "smtp.gmail.com";
         $this->Port = 465; // or 587
         $this->Username = 'username@gmail.com';
